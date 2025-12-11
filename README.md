@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Real Estate Website
+
+A modern real estate website built with Next.js 14, React 19, and Firebase.
+
+## Features
+
+- 🏠 Property Listings with Search & Filters
+- 📝 Blog System for Real Estate News
+- 💼 Services Showcase
+- 📞 Contact & Enquiry Forms
+- 🔥 Firebase Backend (Firestore + Storage)
+- 📱 Responsive Design
+- ⚡ Fast Performance with Next.js
+- 🎨 Modern UI with Tailwind CSS v4
+- 📊 SEO Optimized
+
+## Tech Stack
+
+- **Frontend**: Next.js 14, React 19
+- **Styling**: Tailwind CSS v4
+- **Backend**: Firebase (Firestore Database)
+- **Storage**: Firebase Storage
+- **Analytics**: Firebase Analytics
+- **Deployment**: Vercel/Netlify
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Set Up Firebase
+
+See [FIREBASE_SETUP.md](./FIREBASE_SETUP.md) for detailed Firebase configuration instructions.
+
+The Firebase project is already configured in `lib/firebase.js`:
+- Project ID: shreedhar-c51c5
+- Services: Firestore, Storage, Analytics
+
+### 3. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 4. Add Data to Firestore
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Use the Firebase Console to add:
+- Properties
+- Blogs
+- Services
+- Cities
+- Areas
+
+See [FIREBASE_SETUP.md](./FIREBASE_SETUP.md) for data structure and examples.
+
+## Project Structure
+
+```
+├── app/                    # Next.js App Router pages
+│   ├── page.js            # Homepage
+│   ├── properties/        # Property listings
+│   ├── blogs/             # Blog pages
+│   ├── services/          # Services page
+│   ├── contact/           # Contact page
+│   └── about/             # About page
+├── components/            # React components
+│   ├── layout/            # Header, Footer, Navigation
+│   ├── sections/          # Page sections
+│   ├── ui/                # Reusable UI components
+│   └── seo/               # SEO components
+├── lib/                   # Utilities and configurations
+│   ├── firebase.js        # Firebase initialization
+│   ├── firestore.js       # Firestore database utilities
+│   ├── api.js             # API client
+│   └── utils/             # Helper functions
+└── public/                # Static assets
+```
+
+## API Usage
+
+```javascript
+import { api } from '@/lib/api';
+
+// Get properties
+const properties = await api.getProperties();
+
+// Get property by slug
+const property = await api.getPropertyBySlug('apartment-slug');
+
+// Submit enquiry
+await api.submitEnquiry({
+  name: "John Doe",
+  email: "john@example.com",
+  phone: "+91 9876543210",
+  message: "Interested in property"
+});
+```
+
+## Documentation
+
+- [Firebase Setup Guide](./FIREBASE_SETUP.md) - Complete Firebase configuration
+- [SEO Implementation](./SEO_IMPLEMENTATION.md) - SEO features and setup
+- [Project Complete](./PROJECT_COMPLETE.md) - Project completion checklist
+
+## Deployment
+
+### Deploy on Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/realestate-website)
+
+1. Push code to GitHub
+2. Import project to Vercel
+3. Deploy automatically
+
+### Deploy on Netlify
+
+1. Push code to GitHub
+2. Connect repository to Netlify
+3. Build command: `npm run build`
+4. Publish directory: `.next`
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Firebase Documentation](https://firebase.google.com/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
