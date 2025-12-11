@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && 
+             exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+    
+    // Properties Collection
+    match /properties/{property} {
+      allow read: if resource.data.is_active == true;
+      allow read: if isAdmin(); // Admins can read all
+      allow write: if isAdmin();
+    }
+    
+    // Blogs Collection
+    match /blogs/{blog} {
+      allow read: if resource.data.is_published == true;
+      allow read: if isAdmin(); // Admins can read all
+      allow write: if isAdmin();
+    }
+    
+    // Services Collection
+    match /services/{service} {
+      allow read: if resource.data.is_active == true;
+      allow read: if isAdmin(); // Admins can read all
+      allow write: if isAdmin();
+    }
+    
+    // Cities Collection
+    match /cities/{city} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // Areas Collection
+    match /areas/{area} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // Enquiries Collection
+    match /enquiries/{enquiry} {
+      allow create: if true; // Anyone can create enquiry
+      allow read, update, delete: if isAdmin(); // Only admin can read/manage
+    }
+    
+    // Contacts Collection
+    match /contacts/{contact} {
+      allow create: if true; // Anyone can create contact message
+      allow read, update, delete: if isAdmin(); // Only admin can read/manage
+    }
+    
+    // Admins Collection (for admin user management)
+    match /admins/{adminId} {
+      allow read: if request.auth != null && request.auth.uid == adminId;
+      allow write: if false; // Manually manage admins through Firebase Console
+    }
+  }
+}

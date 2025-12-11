@@ -1,0 +1,34 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && 
+             firestore.exists(/databases/(default)/documents/admins/$(request.auth.uid));
+    }
+    
+    // Properties Images
+    match /properties/{imageId} {
+      allow read: if true; // Anyone can read
+      allow write: if isAdmin(); // Only admin can upload
+    }
+    
+    // Blog Images
+    match /blogs/{imageId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // Service Images
+    match /services/{imageId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // Temp uploads (for processing)
+    match /temp/{imageId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
