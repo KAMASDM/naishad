@@ -42,14 +42,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">RE</span>
+            <div className="w-10 h-10 bg-gold-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">TA</span>
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl md:text-2xl font-bold text-gray-900">
-                RealEstate
+                Thakkar Auctioneer
               </h1>
-              <p className="text-xs text-gray-600">Premium Properties</p>
+              <p className="text-xs text-gray-600">& Realtors Pvt. Ltd.</p>
             </div>
           </Link>
 
@@ -61,8 +61,8 @@ export default function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
                   isActive(link.href)
-                    ? 'text-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-gold-600'
+                    : 'text-gray-700 hover:text-gold-600'
                 }`}
               >
                 {link.label}
@@ -73,8 +73,8 @@ export default function Header() {
           {/* Contact Button - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="tel:+919876543210"
-              className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors"
+              href="tel:+919324541883"
+              className="flex items-center space-x-2 text-gray-700 hover:text-gold-600 transition-colors"
             >
               <svg
                 className="w-5 h-5"
@@ -89,14 +89,14 @@ export default function Header() {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <span className="text-sm font-medium">+91 98765 43210</span>
+              <span className="text-sm font-medium">+91 93245 41883</span>
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
+            className="lg:hidden p-2 text-gray-700 hover:text-gold-600 transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -142,7 +142,7 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     isActive(link.href)
-                      ? 'bg-blue-50 text-blue-600'
+                      ? 'bg-gold-50 text-gold-600'
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
@@ -151,7 +151,7 @@ export default function Header() {
               ))}
               <a
                 href="tel:+919876543210"
-                className="px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-lg text-center hover:bg-blue-50 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gold-600 border border-gold-600 rounded-lg text-center hover:bg-gold-50 transition-colors"
               >
                 📞 +91 98765 43210
               </a>

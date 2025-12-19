@@ -86,7 +86,7 @@ export default function FloatingEnquiryForm() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-300"
+        className="fixed bottom-6 right-6 z-40 bg-gold-600 text-white rounded-full p-4 shadow-lg hover:bg-gold-700 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-gold-300"
         aria-label="Open enquiry form"
       >
         <svg
@@ -121,17 +121,17 @@ export default function FloatingEnquiryForm() {
       >
         <div className="h-full flex flex-col">
           {/* Header */}
-          <div className="bg-blue-600 text-white p-6">
+          <div className="bg-gold-600 text-white p-6">
             <div className="flex justify-between items-center">
               <div>
                 <h3 className="text-xl font-bold">Quick Enquiry</h3>
-                <p className="text-sm text-blue-100 mt-1">
+                <p className="text-sm text-gold-100 mt-1">
                   We'll get back to you soon!
                 </p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-blue-700 rounded-full p-2 transition-colors"
+                className="text-white hover:bg-gold-700 rounded-full p-2 transition-colors"
                 aria-label="Close form"
               >
                 <svg
@@ -168,7 +168,7 @@ export default function FloatingEnquiryForm() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent ${
                     errors.name ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="Enter your name"
@@ -192,7 +192,7 @@ export default function FloatingEnquiryForm() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="your@email.com"
@@ -216,7 +216,7 @@ export default function FloatingEnquiryForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent ${
                     errors.phone ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="9876543210"
@@ -239,7 +239,7 @@ export default function FloatingEnquiryForm() {
                   name="property_interest"
                   value={formData.property_interest}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent"
                 >
                   <option value="">Select property type</option>
                   <option value="apartment">Apartment</option>
@@ -264,7 +264,7 @@ export default function FloatingEnquiryForm() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent resize-none"
                   placeholder="Tell us about your requirements..."
                 ></textarea>
               </div>
@@ -285,7 +285,7 @@ export default function FloatingEnquiryForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="w-full bg-gold-600 text-white py-3 rounded-lg font-semibold hover:bg-gold-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
               </button>

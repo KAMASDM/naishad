@@ -52,7 +52,7 @@ export default function AdminDashboard() {
       count: stats.properties,
       icon: '🏠',
       href: '/admin/properties',
-      color: 'bg-blue-500',
+      color: 'bg-gold-500',
     },
     {
       title: 'Blogs',
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
     return (
       <div className="flex items-center justify-center h-96">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading dashboard...</p>
         </div>
       </div>
@@ -141,7 +141,7 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link
             href="/admin/properties/new"
-            className="px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-center font-medium"
+            className="px-4 py-3 bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition-colors text-center font-medium"
           >
             + Add New Property
           </Link>

@@ -54,7 +54,7 @@ export default function ContactsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-600"></div>
       </div>
     );
   }
@@ -78,7 +78,7 @@ export default function ContactsPage() {
             <div
               key={contact.id}
               className={`bg-white rounded-lg shadow-md p-6 ${
-                !contact.is_read ? 'border-l-4 border-blue-600' : ''
+                !contact.is_read ? 'border-l-4 border-gold-600' : ''
               }`}
             >
               <div className="flex justify-between items-start mb-4">
@@ -87,7 +87,7 @@ export default function ContactsPage() {
                   <p className="text-sm text-gray-600">{formatDate(contact.created_at)}</p>
                 </div>
                 {!contact.is_read && (
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded">
+                  <span className="px-3 py-1 bg-gold-100 text-gold-800 text-xs font-semibold rounded">
                     NEW
                   </span>
                 )}
@@ -119,7 +119,7 @@ export default function ContactsPage() {
                 {!contact.is_read && (
                   <button
                     onClick={() => handleMarkAsRead(contact.id)}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm"
+                    className="px-4 py-2 bg-gold-600 text-white rounded-md hover:bg-gold-700 transition-colors text-sm"
                   >
                     Mark as Read
                   </button>

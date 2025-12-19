@@ -33,7 +33,7 @@ export default function AdminSidebar() {
       {/* Mobile menu button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-gold-600 text-white rounded-md"
       >
         {isMobileMenuOpen ? '✕' : '☰'}
       </button>
@@ -61,7 +61,7 @@ export default function AdminSidebar() {
                   href={item.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                     isActive
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-gold-600 text-white'
                       : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}

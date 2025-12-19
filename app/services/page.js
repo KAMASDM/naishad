@@ -97,13 +97,13 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-gold-900 to-gold-700 text-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Our Services
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
+            <p className="text-lg md:text-xl text-gold-100">
               Comprehensive real estate solutions tailored to your needs
             </p>
           </div>
@@ -125,7 +125,7 @@ export default function ServicesPage() {
                 key={service.id}
                 className="bg-white border border-gray-200 rounded-xl p-6 md:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                <div className="w-16 h-16 bg-gold-100 rounded-xl flex items-center justify-center text-gold-600 mb-6">
                   {getServiceIcon(service.service_type)}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -173,19 +173,19 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-              <div className="text-4xl font-bold text-blue-600 mb-2">15+</div>
+              <div className="text-4xl font-bold text-gold-600 mb-2">15+</div>
               <div className="text-gray-600 font-medium">Years Experience</div>
             </div>
             <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-              <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
+              <div className="text-4xl font-bold text-gold-600 mb-2">1000+</div>
               <div className="text-gray-600 font-medium">Happy Clients</div>
             </div>
             <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-              <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
+              <div className="text-4xl font-bold text-gold-600 mb-2">500+</div>
               <div className="text-gray-600 font-medium">Properties</div>
             </div>
             <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-              <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-4xl font-bold text-gold-600 mb-2">50+</div>
               <div className="text-gray-600 font-medium">Expert Agents</div>
             </div>
           </div>
@@ -193,25 +193,25 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gold-600 to-gold-800 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Need Professional Assistance?
             </h2>
-            <p className="text-lg text-blue-100 mb-8">
+            <p className="text-lg text-gold-100 mb-8">
               Our expert team is here to help you with all your real estate needs
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg"
+                className="px-8 py-4 bg-white text-gold-600 rounded-lg font-semibold hover:bg-gold-50 transition-colors shadow-lg"
               >
                 Get in Touch
               </a>
               <a
                 href="/properties"
-                className="px-8 py-4 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors border-2 border-white shadow-lg"
+                className="px-8 py-4 bg-gold-700 text-white rounded-lg font-semibold hover:bg-gold-600 transition-colors border-2 border-white shadow-lg"
               >
                 Browse Properties
               </a>

@@ -2,43 +2,43 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { adminDB } from '@/lib/firestore';
 
-export default function PropertiesPage() {
-  const [properties, setProperties] = useState([]);
+export default function BlogsPage() {
+  const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [deleteId, setDeleteId] = useState(null);
-  const router = useRouter();
 
   useEffect(() => {
-    fetchProperties();
+    fetchBlogs();
   }, []);
 
-  const fetchProperties = async () => {
+  const fetchBlogs = async () => {
     try {
-      const data = await adminDB.getAllProperties();
-      setProperties(data);
+      const data = await adminDB.getAllBlogs();
+      setBlogs(data);
     } catch (error) {
-      console.error('Error fetching properties:', error);
+      console.error('Error fetching blogs:', error);
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (id) => {
-    if (!confirm('Are you sure you want to delete this property?')) return;
+    if (!confirm('Are you sure you want to delete this blog?')) return;
 
     try {
-      setDeleteId(id);
-      await adminDB.deleteProperty(id);
-      setProperties(properties.filter(p => p.id !== id));
+      await adminDB.deleteBlog(id);
+      setBlogs(blogs.filter(b => b.id !== id));
     } catch (error) {
-      console.error('Error deleting property:', error);
-      alert('Failed to delete property');
-    } finally {
-      setDeleteId(null);
+      console.error('Error deleting blog:', error);
+      alert('Failed to delete blog');
     }
+  };
+
+  const formatDate = (timestamp) => {
+    if (!timestamp) return '-';
+    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    return date.toLocaleDateString();
   };
 
   if (loading) {
@@ -53,25 +53,25 @@ export default function PropertiesPage() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Properties</h1>
-          <p className="text-gray-600 mt-2">Manage your property listings</p>
+          <h1 className="text-3xl font-bold text-gray-900">Blogs</h1>
+          <p className="text-gray-600 mt-2">Manage your blog posts</p>
         </div>
         <Link
-          href="/admin/properties/new"
-          className="px-6 py-3 bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition-colors font-medium"
+          href="/admin/blogs/new"
+          className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
         >
-          + Add New Property
+          + Add New Blog
         </Link>
       </div>
 
-      {properties.length === 0 ? (
+      {blogs.length === 0 ? (
         <div className="bg-white rounded-lg shadow-md p-12 text-center">
-          <p className="text-gray-600 text-lg">No properties yet</p>
+          <p className="text-gray-600 text-lg">No blogs yet</p>
           <Link
-            href="/admin/properties/new"
-            className="inline-block mt-4 text-gold-600 hover:text-gold-700"
+            href="/admin/blogs/new"
+            className="inline-block mt-4 text-green-600 hover:text-green-700"
           >
-            Add your first property →
+            Add your first blog post →
           </Link>
         </div>
       ) : (
@@ -81,16 +81,13 @@ export default function PropertiesPage() {
               <thead className="bg-gray-50 border-b">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Property
+                    Blog
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Type
+                    Category
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Location
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Price
+                    Published
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Status
@@ -101,43 +98,40 @@ export default function PropertiesPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {properties.map((property) => (
-                  <tr key={property.id} className="hover:bg-gray-50">
+                {blogs.map((blog) => (
+                  <tr key={blog.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        {property.primary_image && (
+                        {blog.featured_image && (
                           <img
-                            src={property.primary_image}
-                            alt={property.title}
+                            src={blog.featured_image}
+                            alt={blog.title}
                             className="w-16 h-16 object-cover rounded"
                           />
                         )}
                         <div>
-                          <div className="font-medium text-gray-900">{property.title}</div>
-                          <div className="text-sm text-gray-500">{property.bedrooms} BHK</div>
+                          <div className="font-medium text-gray-900">{blog.title}</div>
+                          <div className="text-sm text-gray-500">{blog.excerpt?.substring(0, 50)}...</div>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-900">
-                      {property.property_type}
+                      {blog.category || '-'}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-900">
-                      {property.area_name}, {property.city_name}
-                    </td>
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                      ₹{property.price?.toLocaleString()}
+                      {formatDate(blog.published_date)}
                     </td>
                     <td className="px-6 py-4">
                       <span
                         className={`px-2 py-1 text-xs font-semibold rounded ${
-                          property.is_active
+                          blog.is_published
                             ? 'bg-green-100 text-green-800'
                             : 'bg-gray-100 text-gray-800'
                         }`}
                       >
-                        {property.is_active ? 'Active' : 'Inactive'}
+                        {blog.is_published ? 'Published' : 'Draft'}
                       </span>
-                      {property.featured && (
+                      {blog.featured && (
                         <span className="ml-2 px-2 py-1 text-xs font-semibold rounded bg-gold-100 text-gold-800">
                           Featured
                         </span>
@@ -145,17 +139,16 @@ export default function PropertiesPage() {
                     </td>
                     <td className="px-6 py-4 text-right text-sm space-x-2">
                       <Link
-                        href={`/admin/properties/${property.id}`}
-                        className="text-gold-600 hover:text-gold-900"
+                        href={`/admin/blogs/${blog.id}`}
+                        className="text-green-600 hover:text-green-900"
                       >
                         Edit
                       </Link>
                       <button
-                        onClick={() => handleDelete(property.id)}
-                        disabled={deleteId === property.id}
-                        className="text-red-600 hover:text-red-900 disabled:text-gray-400"
+                        onClick={() => handleDelete(blog.id)}
+                        className="text-red-600 hover:text-red-900"
                       >
-                        {deleteId === property.id ? 'Deleting...' : 'Delete'}
+                        Delete
                       </button>
                     </td>
                   </tr>

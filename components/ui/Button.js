@@ -11,8 +11,8 @@ export default function Button({
   const baseStyles = 'font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-4';
   
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-300 disabled:bg-gray-400',
-    secondary: 'bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50 focus:ring-blue-300',
+    primary: 'bg-gold-600 text-white hover:bg-gold-700 focus:ring-gold-300 disabled:bg-gray-400',
+    secondary: 'bg-white text-gold-600 border-2 border-gold-600 hover:bg-gold-50 focus:ring-gold-300',
     outline: 'bg-transparent text-gray-700 border-2 border-gray-300 hover:bg-gray-50 focus:ring-gray-300',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-300',
     success: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-300',

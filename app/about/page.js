@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 export const metadata = {
   title: 'About Us',
-  description: 'Learn about RealEstate - Mumbai\'s leading property portal with 15 years of experience, 500+ properties, and 1000+ satisfied clients. Your trusted real estate partner.',
+  description: 'Learn about Thakkar Auctioneer & Realtors - Ex: Court Receiver, Debt Recovery Tribunal Mumbai, Auctioneer & Solution Provider For Banks. Your trusted partner for premium properties and auction services.',
   openGraph: {
-    title: 'About RealEstate - Mumbai\'s Trusted Property Portal',
-    description: '15 years of excellence in Mumbai real estate. Helping you find your dream property.',
+    title: 'About Thakkar Auctioneer & Realtors - Trusted Auction & Real Estate Services',
+    description: 'Ex: Court Receiver - Debt Recovery Tribunal - Mumbai. Auctioneer & Solution Provider For Banks.',
     images: ['/og-about.jpg'],
   },
   alternates: {
@@ -18,14 +18,14 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-gold-900 to-gold-700 text-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              About RealEstate
+              About Thakkar Auctioneer
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
-              Your trusted partner in finding the perfect property in Mumbai since 2009
+            <p className="text-lg md:text-xl text-gold-100">
+              Ex: Court Receiver - Debt Recovery Tribunal - Mumbai, Auctioneer & Solution Provider For Banks
             </p>
           </div>
         </div>
@@ -37,26 +37,28 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <SectionTitle
               subtitle="Our Story"
-              title="Building Dreams Since 2009"
+              title="Professional Excellence in Auctions & Real Estate"
               centered
             />
             <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
               <p>
-                RealEstate was founded with a simple mission: to make finding your dream home
-                in Mumbai as seamless and transparent as possible. Over the past 15 years, we've
-                grown from a small team of passionate real estate enthusiasts to Mumbai's most
-                trusted property portal.
+                Thakkar Auctioneer & Realtors Pvt. Ltd. was founded by Naishadh V. Thakkar with a
+                mission to provide professional auction and real estate services with complete
+                transparency and integrity. As an Ex: Court Receiver and Debt Recovery Tribunal
+                specialist in Mumbai, we bring decades of experience in handling complex property
+                transactions and auction proceedings.
               </p>
               <p>
-                We understand that buying or renting a property is one of the most important
-                decisions in your life. That's why we've built a platform that not only showcases
-                the finest properties across Mumbai but also provides you with all the information
-                and support you need to make an informed decision.
+                We understand that property auctions and real estate transactions require expertise,
+                trust, and precision. That's why we've built our reputation as a trusted Auctioneer
+                & Solution Provider For Banks, handling sensitive cases with professionalism and
+                discretion. Our services span across Mumbai and Vadodara, serving clients from
+                financial institutions, legal entities, and private individuals.
               </p>
               <p>
-                Today, we're proud to have helped over 1000+ families find their perfect homes
-                across Mumbai's most prestigious locations. Our commitment to transparency,
-                integrity, and exceptional customer service remains at the heart of everything we do.
+                Today, we're proud to be recognized as one of the leading auctioneers and real estate
+                consultants in the region. Our commitment to legal compliance, market knowledge, and
+                exceptional client service remains at the heart of everything we do.
               </p>
             </div>
           </div>
@@ -73,9 +75,9 @@ export default function AboutPage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-8 rounded-xl shadow-md text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-gold-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -96,9 +98,9 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-md text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-gold-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -119,9 +121,9 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-md text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-gold-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -154,25 +156,25 @@ export default function AboutPage() {
           />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-gold-600 mb-2">
                 15+
               </div>
               <div className="text-gray-600">Years of Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-gold-600 mb-2">
                 500+
               </div>
               <div className="text-gray-600">Properties Listed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-gold-600 mb-2">
                 1000+
               </div>
               <div className="text-gray-600">Happy Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-gold-600 mb-2">
                 50+
               </div>
               <div className="text-gray-600">Expert Agents</div>
@@ -182,25 +184,25 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gold-600 to-gold-800 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Find Your Dream Home?
             </h2>
-            <p className="text-lg text-blue-100 mb-8">
+            <p className="text-lg text-gold-100 mb-8">
               Let our expert team help you find the perfect property in Mumbai
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/properties"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg"
+                className="px-8 py-4 bg-white text-gold-600 rounded-lg font-semibold hover:bg-gold-50 transition-colors shadow-lg"
               >
                 Browse Properties
               </a>
               <a
                 href="/contact"
-                className="px-8 py-4 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors border-2 border-white shadow-lg"
+                className="px-8 py-4 bg-gold-700 text-white rounded-lg font-semibold hover:bg-gold-600 transition-colors border-2 border-white shadow-lg"
               >
                 Contact Us
               </a>

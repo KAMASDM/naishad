@@ -87,13 +87,13 @@ function PropertiesContent() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-12 md:py-16">
+      <section className="bg-gradient-to-br from-gold-900 to-gold-700 text-white py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Browse Properties
             </h1>
-            <p className="text-base md:text-lg text-blue-100">
+            <p className="text-base md:text-lg text-gold-100">
               {properties.length} properties found
             </p>
           </div>
@@ -110,7 +110,7 @@ function PropertiesContent() {
               <select
                 value={filters.area}
                 onChange={(e) => handleFilterChange('area', e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900"
+                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white text-gray-900"
               >
                 <option value="">All Areas</option>
                 {MUMBAI_AREAS.map((area) => (
@@ -124,7 +124,7 @@ function PropertiesContent() {
               <select
                 value={filters.propertyType}
                 onChange={(e) => handleFilterChange('propertyType', e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900"
+                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white text-gray-900"
               >
                 <option value="">All Types</option>
                 {PROPERTY_TYPES.map((type) => (
@@ -138,7 +138,7 @@ function PropertiesContent() {
               <select
                 value={filters.bhk}
                 onChange={(e) => handleFilterChange('bhk', e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900"
+                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white text-gray-900"
               >
                 <option value="">All BHK</option>
                 {BHK_TYPES.map((bhk) => (
@@ -190,7 +190,7 @@ function PropertiesContent() {
               </p>
               <button
                 onClick={handleClearFilters}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="px-6 py-3 bg-gold-600 text-white rounded-lg font-semibold hover:bg-gold-700 transition-colors"
               >
                 Clear All Filters
               </button>

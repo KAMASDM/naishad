@@ -6,7 +6,7 @@ export default function LoadingSpinner({ size = 'md', fullScreen = false }) {
   };
 
   const spinner = (
-    <div className={`${sizes[size]} border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin`}></div>
+    <div className={`${sizes[size]} border-4 border-gold-200 border-t-gold-600 rounded-full animate-spin`}></div>
   );
 
   if (fullScreen) {

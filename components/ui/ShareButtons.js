@@ -78,7 +78,7 @@ export default function ShareButtons({
           href={shareLinks.facebook}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+          className="flex items-center justify-center w-12 h-12 bg-gold-600 text-white rounded-full hover:bg-gold-700 transition-colors shadow-md hover:shadow-lg"
           aria-label="Share on Facebook"
         >
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -91,7 +91,7 @@ export default function ShareButtons({
           href={shareLinks.twitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 bg-blue-400 text-white rounded-full hover:bg-blue-500 transition-colors shadow-md hover:shadow-lg"
+          className="flex items-center justify-center w-12 h-12 bg-gold-400 text-white rounded-full hover:bg-gold-500 transition-colors shadow-md hover:shadow-lg"
           aria-label="Share on Twitter"
         >
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -104,7 +104,7 @@ export default function ShareButtons({
           href={shareLinks.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition-colors shadow-md hover:shadow-lg"
+          className="flex items-center justify-center w-12 h-12 bg-gold-700 text-white rounded-full hover:bg-gold-800 transition-colors shadow-md hover:shadow-lg"
           aria-label="Share on LinkedIn"
         >
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

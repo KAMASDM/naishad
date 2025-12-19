@@ -114,7 +114,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.title}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -128,7 +128,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.slug}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -142,7 +142,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               onChange={handleChange}
               required
               rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -155,7 +155,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.property_type}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             >
               <option value="Apartment">Apartment</option>
               <option value="Villa">Villa</option>
@@ -175,7 +175,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.price}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -189,7 +189,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.area_sqft}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -204,7 +204,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               onChange={handleChange}
               required
               min="0"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -219,7 +219,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               onChange={handleChange}
               required
               min="0"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -233,7 +233,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.city_name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -247,7 +247,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.area_name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -261,7 +261,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.address}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -275,7 +275,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               value={formData.amenities}
               onChange={handleChange}
               placeholder="Parking, Gym, Swimming Pool, Security"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
           </div>
 
@@ -287,9 +287,9 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               type="file"
               accept="image/*"
               onChange={handleImageChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
             />
-            <p className="text-sm text-gray-500 mt-1">Max size: 2MB (stored as base64)</p>
+            <p className="text-sm text-gray-600 mt-1">Max size: 2MB (stored as base64)</p>
             {imagePreview && (
               <img
                 src={imagePreview}
@@ -306,7 +306,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
                 name="featured"
                 checked={formData.featured}
                 onChange={handleChange}
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-gold-600 border-gray-300 rounded focus:ring-gold-500"
               />
               <span className="text-sm font-medium text-gray-700">Featured Property</span>
             </label>
@@ -317,7 +317,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
                 name="is_active"
                 checked={formData.is_active}
                 onChange={handleChange}
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-gold-600 border-gray-300 rounded focus:ring-gold-500"
               />
               <span className="text-sm font-medium text-gray-700">Active</span>
             </label>
@@ -336,7 +336,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
         <button
           type="submit"
           disabled={loading}
-          className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:bg-gray-400"
+          className="px-6 py-2 bg-gold-600 text-white rounded-md hover:bg-gold-700 transition-colors disabled:bg-gray-400"
         >
           {loading ? 'Saving...' : isEdit ? 'Update Property' : 'Create Property'}
         </button>

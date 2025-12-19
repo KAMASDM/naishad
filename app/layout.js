@@ -12,16 +12,16 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://realestate.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://thakkarauctioneer.com'),
   title: {
-    default: 'RealEstate - Premium Properties in Mumbai | Buy, Sell & Rent',
-    template: '%s | RealEstate Mumbai',
+    default: 'Thakkar Auctioneer & Realtors - Premium Properties & Auction Services',
+    template: '%s | Thakkar Auctioneer',
   },
-  description: 'Find your dream property in Mumbai. Browse 500+ verified luxury apartments, villas, and penthouses in prime locations like Bandra, Andheri, Juhu, Worli.',
-  keywords: ['real estate Mumbai', 'properties Mumbai', 'buy apartment Mumbai', 'luxury villas Mumbai', 'penthouses Mumbai', 'real estate agents Mumbai', 'property dealers Mumbai', 'flats for sale Mumbai', 'houses for rent Mumbai'],
-  authors: [{ name: 'RealEstate Mumbai' }],
-  creator: 'RealEstate Mumbai',
-  publisher: 'RealEstate Mumbai',
+  description: 'Ex: Court Receiver - Debt Recovery Tribunal - Mumbai. Auctioneer & Solution Provider For Banks. Premium real estate and auction services in Mumbai and Vadodara.',
+  keywords: ['property auction Mumbai', 'real estate Mumbai', 'court receiver Mumbai', 'debt recovery tribunal', 'bank auction properties', 'property dealers Mumbai', 'Thakkar Auctioneer', 'real estate Vadodara', 'auction services'],
+  authors: [{ name: 'Thakkar Auctioneer & Realtors Pvt. Ltd.' }],
+  creator: 'Thakkar Auctioneer & Realtors Pvt. Ltd.',
+  publisher: 'Thakkar Auctioneer & Realtors Pvt. Ltd.',
   formatDetection: {
     email: false,
     address: false,
@@ -31,22 +31,22 @@ export const metadata = {
     type: 'website',
     locale: 'en_IN',
     url: '/',
-    siteName: 'RealEstate Mumbai',
-    title: 'RealEstate - Premium Properties in Mumbai',
-    description: 'Find your dream property in Mumbai. Browse luxury apartments, villas, and penthouses in prime locations.',
+    siteName: 'Thakkar Auctioneer & Realtors',
+    title: 'Thakkar Auctioneer & Realtors - Premium Properties & Auction Services',
+    description: 'Ex: Court Receiver - Debt Recovery Tribunal - Mumbai. Auctioneer & Solution Provider For Banks.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'RealEstate Mumbai',
+        alt: 'Thakkar Auctioneer & Realtors',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RealEstate - Premium Properties in Mumbai',
-    description: 'Find your dream property in Mumbai. Browse luxury apartments, villas, and penthouses.',
+    title: 'Thakkar Auctioneer & Realtors - Premium Properties & Auction Services',
+    description: 'Ex: Court Receiver - Debt Recovery Tribunal - Mumbai. Auctioneer & Solution Provider For Banks.',
     images: ['/og-image.jpg'],
   },
   robots: {

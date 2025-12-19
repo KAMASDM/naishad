@@ -94,14 +94,14 @@ export default function BottomNav() {
             href={item.href}
             className={`flex flex-col items-center justify-center space-y-1 transition-colors ${
               isActive(item.href)
-                ? 'text-blue-600 bg-blue-50'
-                : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                ? 'text-gold-600 bg-gold-50'
+                : 'text-gray-600 hover:text-gold-600 hover:bg-gray-50'
             }`}
           >
             <div className="relative">
               {item.icon}
               {isActive(item.href) && (
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full"></div>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gold-600 rounded-full"></div>
               )}
             </div>
             <span className="text-xs font-medium">{item.label}</span>

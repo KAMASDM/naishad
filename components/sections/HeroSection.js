@@ -24,14 +24,14 @@ export default function HeroSection() {
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-blue-800/85 to-blue-900/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gold-900/90 via-gold-800/85 to-gold-900/90"></div>
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center bg-blue-700/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
+          <div className="inline-flex items-center bg-gold-700/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
             <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
             Mumbai's #1 Real Estate Platform
           </div>
@@ -40,11 +40,11 @@ export default function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
             Find Your Dream
             <br />
-            <span className="text-blue-300">Property in Mumbai</span>
+            <span className="text-gold-300">Property in Mumbai</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-blue-100 mb-10 md:mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gold-100 mb-10 md:mb-12 max-w-2xl mx-auto">
             Discover premium apartments, villas, and penthouses across Mumbai's
             most sought-after locations. Your perfect home awaits.
           </p>
@@ -58,7 +58,7 @@ export default function HeroSection() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search by location, property type, or BHK..."
-                  className="w-full px-6 py-4 md:py-5 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-blue-300 shadow-lg"
+                  className="w-full px-6 py-4 md:py-5 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-gold-300 shadow-lg"
                 />
                 <svg
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400 pointer-events-none"
@@ -124,15 +124,15 @@ export default function HeroSection() {
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
                 500+
               </div>
-              <div className="text-sm md:text-base text-blue-200">
+              <div className="text-sm md:text-base text-gold-200">
                 Properties Listed
               </div>
             </div>
-            <div className="text-center border-x border-blue-700">
+            <div className="text-center border-x border-gold-700">
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
                 1000+
               </div>
-              <div className="text-sm md:text-base text-blue-200">
+              <div className="text-sm md:text-base text-gold-200">
                 Happy Clients
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function HeroSection() {
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
                 15+
               </div>
-              <div className="text-sm md:text-base text-blue-200">
+              <div className="text-sm md:text-base text-gold-200">
                 Years Experience
               </div>
             </div>

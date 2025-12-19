@@ -74,13 +74,13 @@ export default function BlogsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-gold-900 to-gold-700 text-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Real Estate Blog
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
+            <p className="text-lg md:text-xl text-gold-100">
               Expert insights, market trends, and valuable tips for property buyers
               and investors
             </p>
@@ -106,7 +106,7 @@ export default function BlogsPage() {
               >
                 <article className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   {/* Image */}
-                  <div className="relative h-48 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
+                  <div className="relative h-48 bg-gradient-to-br from-gold-100 to-gold-200 overflow-hidden">
                     {blog.image ? (
                       <Image
                         src={blog.image}
@@ -117,7 +117,7 @@ export default function BlogsPage() {
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
                         <svg
-                          className="w-16 h-16 text-blue-400"
+                          className="w-16 h-16 text-gold-400"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -131,7 +131,7 @@ export default function BlogsPage() {
                         </svg>
                       </div>
                     )}
-                    <div className="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    <div className="absolute top-3 left-3 bg-gold-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                       {blog.category}
                     </div>
                   </div>
@@ -143,13 +143,13 @@ export default function BlogsPage() {
                       <span className="mx-2">•</span>
                       <span>{blog.author}</span>
                     </div>
-                    <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gold-600 transition-colors line-clamp-2">
                       {blog.title}
                     </h2>
                     <p className="text-gray-600 line-clamp-3 mb-4">
                       {blog.excerpt}
                     </p>
-                    <div className="flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
+                    <div className="flex items-center text-gold-600 font-semibold group-hover:gap-2 transition-all">
                       <span>Read More</span>
                       <svg
                         className="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -174,13 +174,13 @@ export default function BlogsPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gold-600 to-gold-800 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Subscribe to Our Newsletter
             </h2>
-            <p className="text-lg text-blue-100 mb-8">
+            <p className="text-lg text-gold-100 mb-8">
               Get the latest real estate news, market insights, and property
               listings delivered to your inbox
             </p>
@@ -188,11 +188,11 @@ export default function BlogsPage() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                className="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-4 focus:ring-gold-300"
               />
               <button
                 type="submit"
-                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg"
+                className="px-8 py-4 bg-white text-gold-600 rounded-lg font-semibold hover:bg-gold-50 transition-colors shadow-lg"
               >
                 Subscribe
               </button>

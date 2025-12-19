@@ -71,13 +71,13 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-gold-900 to-gold-700 text-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Get In Touch
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
+            <p className="text-lg md:text-xl text-gold-100">
               Have questions? We'd love to hear from you. Send us a message and
               we'll respond as soon as possible.
             </p>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent ${
                       errors.name ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="John Doe"
@@ -132,7 +132,7 @@ export default function ContactPage() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent ${
                         errors.email ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="john@example.com"
@@ -155,7 +155,7 @@ export default function ContactPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent ${
                         errors.phone ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="9876543210"
@@ -180,7 +180,7 @@ export default function ContactPage() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent ${
                       errors.subject ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Property Inquiry"
@@ -204,7 +204,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent resize-none ${
                       errors.message ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Tell us about your requirements..."
@@ -245,9 +245,9 @@ export default function ContactPage() {
               <div className="space-y-6 mb-8">
                 {/* Phone */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gold-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="w-6 h-6 text-blue-600"
+                      className="w-6 h-6 text-gold-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -264,18 +264,24 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                     <a
                       href={`tel:${CONTACT_INFO.phone}`}
-                      className="text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-gray-600 hover:text-gold-600 transition-colors block"
                     >
                       {CONTACT_INFO.phone}
+                    </a>
+                    <a
+                      href={`tel:${CONTACT_INFO.phone2}`}
+                      className="text-gray-600 hover:text-gold-600 transition-colors block"
+                    >
+                      {CONTACT_INFO.phone2}
                     </a>
                   </div>
                 </div>
 
                 {/* Email */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gold-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="w-6 h-6 text-blue-600"
+                      className="w-6 h-6 text-gold-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -292,7 +298,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a
                       href={`mailto:${CONTACT_INFO.email}`}
-                      className="text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-gray-600 hover:text-gold-600 transition-colors"
                     >
                       {CONTACT_INFO.email}
                     </a>
@@ -301,9 +307,9 @@ export default function ContactPage() {
 
                 {/* Address */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gold-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="w-6 h-6 text-blue-600"
+                      className="w-6 h-6 text-gold-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -323,14 +329,23 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                    <p className="text-gray-600">{CONTACT_INFO.address}</p>
+                    <h3 className="font-semibold text-gray-900 mb-1">Offices</h3>
+                    <div className="space-y-3">
+                      <div>
+                        <p className="text-sm font-semibold text-gold-600">Mumbai Office:</p>
+                        <p className="text-gray-600 text-sm">{CONTACT_INFO.address}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-gold-600">Vadodara Office:</p>
+                        <p className="text-gray-600 text-sm">{CONTACT_INFO.addressVadodara}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Office Hours */}
-              <div className="bg-blue-50 rounded-xl p-6">
+              <div className="bg-gold-50 rounded-xl p-6">
                 <h3 className="font-semibold text-gray-900 mb-4">Office Hours</h3>
                 <div className="space-y-2 text-gray-600">
                   <div className="flex justify-between">

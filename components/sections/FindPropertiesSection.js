@@ -54,7 +54,7 @@ export default function FindPropertiesSection() {
 
         <div className="max-w-5xl mx-auto">
           {/* Filters Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-white p-6 md:p-8 rounded-2xl shadow-xl border border-blue-100">
+          <div className="bg-gradient-to-br from-gold-50 to-white p-6 md:p-8 rounded-2xl shadow-xl border border-gold-100">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {/* Area Filter */}
               <div>
@@ -64,7 +64,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.area}
                   onChange={(e) => handleFilterChange('area', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
                 >
                   <option value="">Select Area</option>
                   {MUMBAI_AREAS.map((area) => (
@@ -83,7 +83,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.propertyType}
                   onChange={(e) => handleFilterChange('propertyType', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
                 >
                   <option value="">Select Type</option>
                   {PROPERTY_TYPES.map((type) => (
@@ -102,7 +102,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.bhk}
                   onChange={(e) => handleFilterChange('bhk', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
                 >
                   <option value="">Select BHK</option>
                   {BHK_TYPES.map((bhk) => (
@@ -121,7 +121,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.budget}
                   onChange={(e) => handleFilterChange('budget', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
                 >
                   <option value="">Select Budget</option>
                   {BUDGET_RANGES.map((budget) => (
@@ -140,7 +140,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.sqft}
                   onChange={(e) => handleFilterChange('sqft', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
                 >
                   <option value="">Select Area</option>
                   {AREA_RANGES.map((range) => (
@@ -175,7 +175,7 @@ export default function FindPropertiesSection() {
                 </Button>
                 <button
                   onClick={handleReset}
-                  className="px-4 py-3 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="px-4 py-3 text-gray-700 hover:text-gold-600 transition-colors"
                   title="Reset Filters"
                 >
                   <svg
@@ -205,7 +205,7 @@ export default function FindPropertiesSection() {
                   onClick={() => {
                     setFilters({ area: 'bandra', propertyType: '', bhk: '2', budget: '', sqft: '' });
                   }}
-                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600 border border-gray-200 transition-colors"
+                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-gold-50 hover:text-gold-600 border border-gray-200 transition-colors"
                 >
                   2 BHK in Bandra
                 </button>
@@ -213,7 +213,7 @@ export default function FindPropertiesSection() {
                   onClick={() => {
                     setFilters({ area: 'andheri', propertyType: '', bhk: '3', budget: '', sqft: '' });
                   }}
-                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600 border border-gray-200 transition-colors"
+                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-gold-50 hover:text-gold-600 border border-gray-200 transition-colors"
                 >
                   3 BHK in Andheri
                 </button>
@@ -221,7 +221,7 @@ export default function FindPropertiesSection() {
                   onClick={() => {
                     setFilters({ area: '', propertyType: 'villa', bhk: '', budget: '', sqft: '' });
                   }}
-                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600 border border-gray-200 transition-colors"
+                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-gold-50 hover:text-gold-600 border border-gray-200 transition-colors"
                 >
                   Luxury Villas
                 </button>
@@ -229,7 +229,7 @@ export default function FindPropertiesSection() {
                   onClick={() => {
                     setFilters({ area: 'worli', propertyType: 'penthouse', bhk: '', budget: '', sqft: '' });
                   }}
-                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600 border border-gray-200 transition-colors"
+                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-gold-50 hover:text-gold-600 border border-gray-200 transition-colors"
                 >
                   Penthouses in Worli
                 </button>
@@ -237,7 +237,7 @@ export default function FindPropertiesSection() {
                   onClick={() => {
                     setFilters({ area: '', propertyType: '', bhk: '', budget: '0-5000000', sqft: '' });
                   }}
-                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600 border border-gray-200 transition-colors"
+                  className="px-4 py-2 bg-white text-gray-700 rounded-lg text-sm font-medium hover:bg-gold-50 hover:text-gold-600 border border-gray-200 transition-colors"
                 >
                   Under ₹50 Lakhs
                 </button>
@@ -248,9 +248,9 @@ export default function FindPropertiesSection() {
           {/* Why Choose Us */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-gold-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -272,9 +272,9 @@ export default function FindPropertiesSection() {
             </div>
 
             <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-gold-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -296,9 +296,9 @@ export default function FindPropertiesSection() {
             </div>
 
             <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-gold-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

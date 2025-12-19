@@ -1,13 +1,13 @@
 // Web App Manifest for PWA support
 export default function manifest() {
   return {
-    name: 'RealEstate - Premium Properties in Mumbai',
-    short_name: 'RealEstate',
-    description: 'Find your dream property in Mumbai. Browse luxury apartments, villas, and penthouses.',
+    name: 'Thakkar Auctioneer & Realtors - Premium Properties & Auction Services',
+    short_name: 'Thakkar Auctioneer',
+    description: 'Ex: Court Receiver - Debt Recovery Tribunal - Mumbai. Auctioneer & Solution Provider For Banks.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#2563eb',
+    theme_color: '#d97706',
     icons: [
       {
         src: '/icon-192.png',

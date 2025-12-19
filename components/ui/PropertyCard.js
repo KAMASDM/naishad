@@ -32,9 +32,9 @@ export default function PropertyCard({ property }) {
               className="object-cover group-hover:scale-110 transition-transform duration-300"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gold-100 to-gold-200">
               <svg
-                className="w-16 h-16 text-blue-400"
+                className="w-16 h-16 text-gold-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ export default function PropertyCard({ property }) {
               ⭐ Featured
             </div>
           )}
-          <div className="absolute top-3 right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold capitalize">
+          <div className="absolute top-3 right-3 bg-gold-600 text-white px-3 py-1 rounded-full text-xs font-semibold capitalize">
             {property_type || 'Property'}
           </div>
         </div>
@@ -62,13 +62,13 @@ export default function PropertyCard({ property }) {
         <div className="p-4 md:p-5">
           {/* Price */}
           <div className="mb-2">
-            <span className="text-2xl font-bold text-blue-600">
+            <span className="text-2xl font-bold text-gold-600">
               {formatPrice(price)}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1 group-hover:text-blue-600 transition-colors">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1 group-hover:text-gold-600 transition-colors">
             {title}
           </h3>
 

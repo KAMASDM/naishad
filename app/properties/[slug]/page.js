@@ -52,7 +52,7 @@ export default function PropertyDetailPage() {
           </h1>
           <Link
             href="/properties"
-            className="text-blue-600 hover:text-blue-700 font-semibold"
+            className="text-gold-600 hover:text-gold-700 font-semibold"
           >
             ← Back to Properties
           </Link>
@@ -79,7 +79,7 @@ export default function PropertyDetailPage() {
             {/* Back Link */}
             <Link
               href="/properties"
-              className="inline-flex items-center text-white hover:text-blue-400 font-semibold mb-4 transition-colors"
+              className="inline-flex items-center text-white hover:text-gold-400 font-semibold mb-4 transition-colors"
             >
               <svg
                 className="w-5 h-5 mr-2"
@@ -98,7 +98,7 @@ export default function PropertyDetailPage() {
             </Link>
 
             {/* Main Image */}
-            <div className="relative h-64 md:h-96 lg:h-[500px] bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl overflow-hidden">
+            <div className="relative h-64 md:h-96 lg:h-[500px] bg-gradient-to-br from-gold-100 to-gold-200 rounded-xl overflow-hidden">
               {property.images && property.images.length > 0 ? (
                 <Image
                   src={property.images[activeImageIndex].image}
@@ -109,7 +109,7 @@ export default function PropertyDetailPage() {
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
                   <svg
-                    className="w-24 h-24 text-blue-400"
+                    className="w-24 h-24 text-gold-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -169,11 +169,11 @@ export default function PropertyDetailPage() {
                       {property.location}, {property.area_name}, {property.city_name}
                     </span>
                   </div>
-                  <div className="text-4xl font-bold text-blue-600 mb-4">
+                  <div className="text-4xl font-bold text-gold-600 mb-4">
                     {formatPrice(property.price)}
                   </div>
                   <div className="flex items-center justify-between flex-wrap gap-4">
-                    <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-lg font-semibold capitalize">
+                    <div className="inline-block bg-gold-100 text-gold-800 px-4 py-2 rounded-lg font-semibold capitalize">
                       {property.status?.replace('_', ' ')}
                     </div>
                     <ShareButtons
@@ -318,7 +318,7 @@ export default function PropertyDetailPage() {
                             </div>
                             <div className="text-sm text-gray-600">{place.type}</div>
                           </div>
-                          <div className="text-blue-600 font-semibold">
+                          <div className="text-gold-600 font-semibold">
                             {place.distance}
                           </div>
                         </div>
@@ -340,7 +340,7 @@ export default function PropertyDetailPage() {
                     </div>
                     <a
                       href={`tel:${property.contactPhone}`}
-                      className="text-blue-600 hover:text-blue-700"
+                      className="text-gold-600 hover:text-gold-700"
                     >
                       {property.contactPhone}
                     </a>
@@ -400,7 +400,7 @@ export default function PropertyDetailPage() {
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <p className="text-sm text-gray-600 mb-3">Share this property:</p>
                     <div className="flex space-x-2">
-                      <button className="flex-1 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                      <button className="flex-1 p-2 bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition-colors">
                         <svg
                           className="w-5 h-5 mx-auto"
                           fill="currentColor"
