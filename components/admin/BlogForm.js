@@ -4,21 +4,22 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { adminDB, fileToBase64 } from '@/lib/firestore';
 
-export default function ServiceForm({ service = null, isEdit = false }) {
+export default function BlogForm({ blog = null, isEdit = false }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [imagePreview, setImagePreview] = useState(service?.icon_image || null);
+  const [imagePreview, setImagePreview] = useState(blog?.featured_image || null);
   
   const [formData, setFormData] = useState({
-    title: service?.title || '',
-    slug: service?.slug || '',
-    description: service?.description || '',
-    service_type: service?.service_type || 'Property Services',
-    features: service?.features || '',
-    starting_price: service?.starting_price || '',
-    icon_image: service?.icon_image || '',
-    display_order: service?.display_order || 0,
-    is_active: service?.is_active ?? true,
+    title: blog?.title || '',
+    slug: blog?.slug || '',
+    content: blog?.content || '',
+    excerpt: blog?.excerpt || '',
+    category: blog?.category || 'Real Estate',
+    featured_image: blog?.featured_image || '',
+    author: blog?.author || 'Admin',
+    tags: blog?.tags || '',
+    featured: blog?.featured || false,
+    is_published: blog?.is_published ?? true,
   });
 
   const handleChange = (e) => {
@@ -41,13 +42,11 @@ export default function ServiceForm({ service = null, isEdit = false }) {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Validate file type
     if (!file.type.startsWith('image/')) {
       alert('Please select an image file');
       return;
     }
 
-    // Validate file size (max 2MB)
     if (file.size > 2 * 1024 * 1024) {
       alert('Image size should be less than 2MB');
       return;
@@ -55,7 +54,7 @@ export default function ServiceForm({ service = null, isEdit = false }) {
 
     try {
       const base64 = await fileToBase64(file);
-      setFormData(prev => ({ ...prev, icon_image: base64 }));
+      setFormData(prev => ({ ...prev, featured_image: base64 }));
       setImagePreview(base64);
     } catch (error) {
       console.error('Error converting image:', error);
@@ -70,21 +69,19 @@ export default function ServiceForm({ service = null, isEdit = false }) {
     try {
       const data = {
         ...formData,
-        starting_price: formData.starting_price ? parseFloat(formData.starting_price) : null,
-        display_order: parseInt(formData.display_order),
       };
 
       if (isEdit) {
-        await adminDB.updateService(service.id, data);
+        await adminDB.updateBlog(blog.id, data);
       } else {
-        await adminDB.createService(data);
+        await adminDB.createBlog(data);
       }
 
-      router.push('/admin/services');
+      router.push('/admin/blogs');
       router.refresh();
     } catch (error) {
-      console.error('Error saving service:', error);
-      alert('Failed to save service');
+      console.error('Error saving blog:', error);
+      alert('Failed to save blog');
     } finally {
       setLoading(false);
     }
@@ -126,91 +123,84 @@ export default function ServiceForm({ service = null, isEdit = false }) {
 
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Description *
+              Excerpt
             </label>
             <textarea
-              name="description"
-              value={formData.description}
+              name="excerpt"
+              value={formData.excerpt}
+              onChange={handleChange}
+              rows={3}
+              placeholder="Brief summary of the blog post"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
+            />
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Content *
+            </label>
+            <textarea
+              name="content"
+              value={formData.content}
               onChange={handleChange}
               required
-              rows={4}
+              rows={12}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Service Type *
+              Category *
             </label>
             <select
-              name="service_type"
-              value={formData.service_type}
+              name="category"
+              value={formData.category}
               onChange={handleChange}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
             >
-              <option value="Property Services">Property Services</option>
-              <option value="Auction Services">Auction Services</option>
-              <option value="Consulting">Consulting</option>
-              <option value="Legal Services">Legal Services</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Market Trends">Market Trends</option>
+              <option value="Investment Tips">Investment Tips</option>
+              <option value="Property News">Property News</option>
+              <option value="Auction News">Auction News</option>
+              <option value="Legal">Legal</option>
               <option value="Other">Other</option>
             </select>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Starting Price (Optional)
+              Author *
             </label>
             <input
-              type="number"
-              name="starting_price"
-              value={formData.starting_price}
-              onChange={handleChange}
-              placeholder="Leave empty if not applicable"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Display Order *
-            </label>
-            <input
-              type="number"
-              name="display_order"
-              value={formData.display_order}
+              type="text"
+              name="author"
+              value={formData.author}
               onChange={handleChange}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
             />
-            <p className="text-sm text-gray-600 mt-1">Lower numbers appear first</p>
           </div>
 
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Features (comma-separated)
+              Tags (comma-separated)
             </label>
-            <textarea
-              name="features"
-              value={formData.features}
+            <input
+              type="text"
+              name="tags"
+              value={formData.tags}
               onChange={handleChange}
-              rows={3}
-              placeholder="Feature 1, Feature 2, Feature 3"
+              placeholder="real estate, mumbai, property investment"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
             />
-            <p className="text-sm text-gray-600 mt-1">Separate features with commas</p>
           </div>
-        </div>
-      </div>
 
-      {/* Image Upload */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-6">Service Icon</h2>
-        
-        <div className="space-y-4">
-          <div>
+          <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Icon Image
+              Featured Image
             </label>
             <input
               type="file"
@@ -218,36 +208,42 @@ export default function ServiceForm({ service = null, isEdit = false }) {
               onChange={handleImageChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
             />
-            <p className="text-sm text-gray-600 mt-1">Max size: 2MB. Recommended: Square image (e.g., 400x400px)</p>
-          </div>
-
-          {imagePreview && (
-            <div className="mt-4">
-              <p className="text-sm font-medium text-gray-700 mb-2">Preview:</p>
+            <p className="text-sm text-gray-600 mt-1">Max size: 2MB (stored as base64)</p>
+            {imagePreview && (
               <img
                 src={imagePreview}
-                alt="Service icon preview"
-                className="w-32 h-32 object-cover rounded-lg border border-gray-300"
+                alt="Preview"
+                className="mt-4 w-full max-w-md h-48 object-cover rounded-lg"
               />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
 
       {/* Status */}
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-bold text-gray-900 mb-6">Status</h2>
-        
-        <div className="space-y-4">
-          <label className="flex items-center space-x-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label className="flex items-center gap-2">
             <input
               type="checkbox"
-              name="is_active"
-              checked={formData.is_active}
+              name="featured"
+              checked={formData.featured}
               onChange={handleChange}
-              className="w-5 h-5 text-gold-600 border-gray-300 rounded focus:ring-gold-500"
+              className="w-4 h-4 text-gold-600 border-gray-300 rounded focus:ring-gold-500"
             />
-            <span className="text-sm font-medium text-gray-700">Active</span>
+            <span className="text-sm font-medium text-gray-700">Featured Post</span>
+          </label>
+
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              name="is_published"
+              checked={formData.is_published}
+              onChange={handleChange}
+              className="w-4 h-4 text-gold-600 border-gray-300 rounded focus:ring-gold-500"
+            />
+            <span className="text-sm font-medium text-gray-700">Published</span>
           </label>
         </div>
       </div>
@@ -256,7 +252,7 @@ export default function ServiceForm({ service = null, isEdit = false }) {
       <div className="flex justify-end space-x-4">
         <button
           type="button"
-          onClick={() => router.push('/admin/services')}
+          onClick={() => router.push('/admin/blogs')}
           className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
         >
           Cancel
@@ -266,7 +262,7 @@ export default function ServiceForm({ service = null, isEdit = false }) {
           disabled={loading}
           className="px-6 py-2 bg-gold-600 text-white rounded-md hover:bg-gold-700 transition-colors disabled:opacity-50"
         >
-          {loading ? 'Saving...' : isEdit ? 'Update Service' : 'Create Service'}
+          {loading ? 'Saving...' : isEdit ? 'Update Blog' : 'Create Blog'}
         </button>
       </div>
     </form>

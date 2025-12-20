@@ -99,10 +99,14 @@ export default function PropertyDetailPage() {
 
             {/* Main Image */}
             <div className="relative h-64 md:h-96 lg:h-[500px] bg-gradient-to-br from-gold-100 to-gold-200 rounded-xl overflow-hidden">
-              {property.images && property.images.length > 0 ? (
+              {property.primary_image || (property.gallery && property.gallery.length > 0) ? (
                 <Image
-                  src={property.images[activeImageIndex].image}
-                  alt={property.images[activeImageIndex].alt_text || property.title}
+                  src={property.gallery && property.gallery.length > 0 && activeImageIndex < property.gallery.length 
+                    ? property.gallery[activeImageIndex].image 
+                    : property.primary_image}
+                  alt={property.gallery && property.gallery.length > 0 && activeImageIndex < property.gallery.length
+                    ? property.gallery[activeImageIndex].alt_text || property.title
+                    : property.title}
                   fill
                   className="object-cover"
                 />
@@ -129,6 +133,28 @@ export default function PropertyDetailPage() {
                 </div>
               )}
             </div>
+
+            {/* Gallery Thumbnails */}
+            {property.gallery && property.gallery.length > 1 && (
+              <div className="mt-4 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+                {property.gallery.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveImageIndex(index)}
+                    className={`relative h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      activeImageIndex === index ? 'border-gold-500 shadow-lg' : 'border-transparent hover:border-gold-300'
+                    }`}
+                  >
+                    <Image
+                      src={img.image}
+                      alt={img.alt_text || `Gallery ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -296,6 +322,40 @@ export default function PropertyDetailPage() {
                           <span className="text-gray-700">{amenity}</span>
                         </div>
                       ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Property Videos */}
+                {property.videos && property.videos.length > 0 && (
+                  <div className="mb-8">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                      Property Videos
+                    </h2>
+                    <div className="grid grid-cols-1 gap-4">
+                      {property.videos.map((video, index) => {
+                        // Extract YouTube video ID if it's a YouTube URL
+                        let embedUrl = video.url;
+                        if (video.url.includes('youtube.com') || video.url.includes('youtu.be')) {
+                          const videoId = video.url.includes('youtube.com') 
+                            ? video.url.split('v=')[1]?.split('&')[0]
+                            : video.url.split('youtu.be/')[1]?.split('?')[0];
+                          embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                        }
+
+                        return (
+                          <div key={index} className="relative pb-[56.25%] h-0 rounded-xl overflow-hidden">
+                            <iframe
+                              src={embedUrl}
+                              title={video.title || `Property Video ${index + 1}`}
+                              className="absolute top-0 left-0 w-full h-full"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            ></iframe>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
