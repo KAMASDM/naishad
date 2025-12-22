@@ -10,7 +10,7 @@ import ShareButtons from '@/components/ui/ShareButtons';
 import { PropertySchema, BreadcrumbSchema } from '@/components/seo/StructuredData';
 import { api } from '@/lib/api';
 import { formatPrice, formatArea } from '@/utils/helpers';
-import { AMENITIES } from '@/utils/constants';
+import { AMENITIES, CONTACT_INFO } from '@/utils/constants';
 
 export default function PropertyDetailPage() {
   const params = useParams();
@@ -19,6 +19,7 @@ export default function PropertyDetailPage() {
   const [error, setError] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [showEnquiryForm, setShowEnquiryForm] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   useEffect(() => {
     if (params?.slug) {
@@ -36,6 +37,51 @@ export default function PropertyDetailPage() {
       console.error('Error fetching property:', err);
       setError('Failed to load property');
       setLoading(false);
+    }
+  };
+
+  const handleCallNow = () => {
+    // Use property contact phone or fallback to company phone
+    const phoneNumber = property?.contact_phone || property?.contactPhone || CONTACT_INFO.phone;
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
+  const handleWhatsApp = () => {
+    // Use property contact phone or fallback to company phone
+    const phoneNumber = property?.contact_phone || property?.contactPhone || CONTACT_INFO.phone;
+    const cleanPhone = phoneNumber.replace(/[^0-9]/g, '');
+    const message = encodeURIComponent(`Hi, I'm interested in ${property?.title} - ${formatPrice(property?.price)}`);
+    window.open(`https://wa.me/${cleanPhone}?text=${message}`, '_blank');
+  };
+
+  const handleScheduleVisit = () => {
+    setShowEnquiryForm(true);
+  };
+
+  const handleShareFacebook = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+  };
+
+  const handleShareWhatsAppSidebar = () => {
+    const text = encodeURIComponent(`Check out this property: ${property?.title} - ${window.location.href}`);
+    window.open(`https://wa.me/?text=${text}`, '_blank');
+  };
+
+  const handleCloseEnquiry = () => {
+    setShowEnquiryForm(false);
+  };
+
+  const handleEnquirySubmit = async (formData) => {
+    try {
+      await api.submitEnquiry({
+        ...formData,
+        property_interest: property?.title || '',
+      });
+      alert('Thank you! We will contact you shortly.');
+      setShowEnquiryForm(false);
+    } catch (error) {
+      alert('Failed to submit enquiry. Please try again.');
     }
   };
 
@@ -396,17 +442,17 @@ export default function PropertyDetailPage() {
                   </h3>
                   <div className="mb-6">
                     <div className="font-semibold text-gray-900 mb-1">
-                      {property.contactPerson}
+                      {property.contact_person || 'Thakkar Auctioneer & Estate Agents'}
                     </div>
                     <a
-                      href={`tel:${property.contactPhone}`}
+                      href={`tel:${property.contact_phone || CONTACT_INFO.phone}`}
                       className="text-gold-600 hover:text-gold-700"
                     >
-                      {property.contactPhone}
+                      {property.contact_phone || CONTACT_INFO.phone}
                     </a>
                   </div>
 
-                  <Button fullWidth size="lg" className="mb-3">
+                  <Button fullWidth size="lg" className="mb-3" onClick={handleCallNow}>
                     <svg
                       className="w-5 h-5 inline mr-2"
                       fill="none"
@@ -423,7 +469,7 @@ export default function PropertyDetailPage() {
                     Call Now
                   </Button>
 
-                  <Button fullWidth size="lg" variant="secondary" className="mb-3">
+                  <Button fullWidth size="lg" variant="secondary" className="mb-3" onClick={handleWhatsApp}>
                     <svg
                       className="w-5 h-5 inline mr-2"
                       fill="none"
@@ -440,7 +486,7 @@ export default function PropertyDetailPage() {
                     Send Message
                   </Button>
 
-                  <Button fullWidth size="lg" variant="outline">
+                  <Button fullWidth size="lg" variant="outline" onClick={handleScheduleVisit}>
                     <svg
                       className="w-5 h-5 inline mr-2"
                       fill="none"
@@ -460,7 +506,11 @@ export default function PropertyDetailPage() {
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <p className="text-sm text-gray-600 mb-3">Share this property:</p>
                     <div className="flex space-x-2">
-                      <button className="flex-1 p-2 bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition-colors">
+                      <button 
+                        onClick={handleShareFacebook}
+                        className="flex-1 p-2 bg-gold-600 text-white rounded-lg hover:bg-gold-700 transition-colors"
+                        aria-label="Share on Facebook"
+                      >
                         <svg
                           className="w-5 h-5 mx-auto"
                           fill="currentColor"
@@ -469,7 +519,11 @@ export default function PropertyDetailPage() {
                           <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                         </svg>
                       </button>
-                      <button className="flex-1 p-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                      <button 
+                        onClick={handleShareWhatsAppSidebar}
+                        className="flex-1 p-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                        aria-label="Share on WhatsApp"
+                      >
                         <svg
                           className="w-5 h-5 mx-auto"
                           fill="currentColor"
@@ -486,6 +540,95 @@ export default function PropertyDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* Enquiry Modal */}
+      {showEnquiryForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl max-w-md w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button
+              onClick={handleCloseEnquiry}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Schedule a Visit</h3>
+            <p className="text-gray-600 mb-6">Fill in your details and we'll contact you shortly</p>
+            
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const formData = {
+                name: e.target.name.value,
+                email: e.target.email.value,
+                phone: e.target.phone.value,
+                message: e.target.message.value,
+              };
+              handleEnquirySubmit(formData);
+            }}>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    defaultValue={`I'm interested in ${property?.title}`}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
+                  />
+                </div>
+                
+                <div className="flex gap-3">
+                  <Button type="button" variant="outline" fullWidth onClick={handleCloseEnquiry}>
+                    Cancel
+                  </Button>
+                  <Button type="submit" fullWidth>
+                    Submit Enquiry
+                  </Button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
