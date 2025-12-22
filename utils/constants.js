@@ -76,7 +76,7 @@ export const CONTACT_INFO = {
   phone2: '+91 87807 85139',
   email: 'thakkar.thakkar703@gmail.com',
   address: 'Office NO.1, 1st Floor, Dholkwala Building, Opp. Shiddharth Collage, Jamna Bhumi Marg, Fort Mumbai 400 001',
-  addressVadodara: '102, Niharika-11, Near Alkapuri Petrol Pump, R.C. Dutt Road, Alkapuri, Vadodara-390 005',
+  addressVadodara: '102, Niharika-2, Near Alkapuri Petrol Pump, R.C. Dutt Road, Alkapuri, Vadodara-390 005',
   gst: '24AADCT2495G1ZB',
 };
 
