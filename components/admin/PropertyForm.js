@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { adminDB, fileToBase64 } from '@/lib/firestore';
+import { adminDB, compressImage } from '@/lib/firestore';
 
 export default function PropertyForm({ property = null, isEdit = false }) {
   const router = useRouter();
@@ -57,18 +57,19 @@ export default function PropertyForm({ property = null, isEdit = false }) {
       return;
     }
 
-    // Validate file size (max 2MB)
-    if (file.size > 2 * 1024 * 1024) {
-      alert('Image size should be less than 2MB');
+    // Validate file size (max 5MB before compression)
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Image size should be less than 5MB');
       return;
     }
 
     try {
-      const base64 = await fileToBase64(file);
-      setFormData(prev => ({ ...prev, primary_image: base64 }));
-      setImagePreview(base64);
+      // Compress and resize image (max 1200px width, 0.8 quality)
+      const compressedBase64 = await compressImage(file, 1200, 0.8);
+      setFormData(prev => ({ ...prev, primary_image: compressedBase64 }));
+      setImagePreview(compressedBase64);
     } catch (error) {
-      console.error('Error converting image:', error);
+      console.error('Error processing image:', error);
       alert('Failed to process image');
     }
   };
@@ -89,11 +90,12 @@ export default function PropertyForm({ property = null, isEdit = false }) {
           if (!file.type.startsWith('image/')) {
             throw new Error('Please select only image files');
           }
-          if (file.size > 2 * 1024 * 1024) {
-            throw new Error('Each image should be less than 2MB');
+          if (file.size > 5 * 1024 * 1024) {
+            throw new Error('Each image should be less than 5MB');
           }
-          const base64 = await fileToBase64(file);
-          return { image: base64, alt_text: file.name };
+          // Compress gallery images to 800px width, 0.75 quality
+          const compressedBase64 = await compressImage(file, 800, 0.75);
+          return { image: compressedBase64, alt_text: file.name };
         })
       );
 
@@ -353,7 +355,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               onChange={handleImageChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
             />
-            <p className="text-sm text-gray-600 mt-1">Max size: 2MB (stored as base64)</p>
+            <p className="text-sm text-gray-600 mt-1">Max 5MB - Auto-compressed to 1200px width</p>
             {imagePreview && (
               <img
                 src={imagePreview}
@@ -379,7 +381,7 @@ export default function PropertyForm({ property = null, isEdit = false }) {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent text-gray-900"
             />
             <p className="text-sm text-gray-600 mt-1">
-              Select multiple images (Max 10 total, 2MB each)
+              Select multiple images (Max 10 total, 5MB each) - Auto-compressed to 800px width
             </p>
           </div>
 
