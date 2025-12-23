@@ -96,16 +96,16 @@ export default function ContactsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                   <span className="text-sm text-gray-600">Email:</span>
-                  <p className="font-medium">{contact.email}</p>
+                  <p className="font-medium text-gray-900">{contact.email}</p>
                 </div>
                 <div>
                   <span className="text-sm text-gray-600">Phone:</span>
-                  <p className="font-medium">{contact.phone || '-'}</p>
+                  <p className="font-medium text-gray-900">{contact.phone || '-'}</p>
                 </div>
                 {contact.subject && (
                   <div className="md:col-span-2">
                     <span className="text-sm text-gray-600">Subject:</span>
-                    <p className="font-medium">{contact.subject}</p>
+                    <p className="font-medium text-gray-900">{contact.subject}</p>
                   </div>
                 )}
               </div>
