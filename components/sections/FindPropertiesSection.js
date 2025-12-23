@@ -64,7 +64,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.area}
                   onChange={(e) => handleFilterChange('area', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white text-gray-900"
                 >
                   <option value="">Select Area</option>
                   {MUMBAI_AREAS.map((area) => (
@@ -83,7 +83,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.propertyType}
                   onChange={(e) => handleFilterChange('propertyType', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white text-gray-900"
                 >
                   <option value="">Select Type</option>
                   {PROPERTY_TYPES.map((type) => (
@@ -102,7 +102,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.bhk}
                   onChange={(e) => handleFilterChange('bhk', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white text-gray-900"
                 >
                   <option value="">Select BHK</option>
                   {BHK_TYPES.map((bhk) => (
@@ -121,7 +121,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.budget}
                   onChange={(e) => handleFilterChange('budget', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white text-gray-900"
                 >
                   <option value="">Select Budget</option>
                   {BUDGET_RANGES.map((budget) => (
@@ -140,7 +140,7 @@ export default function FindPropertiesSection() {
                 <select
                   value={filters.sqft}
                   onChange={(e) => handleFilterChange('sqft', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent bg-white text-gray-900"
                 >
                   <option value="">Select Area</option>
                   {AREA_RANGES.map((range) => (
