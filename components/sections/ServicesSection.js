@@ -48,15 +48,16 @@ export default function ServicesSection() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12 max-w-6xl mx-auto">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div
               key={service.id}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gold-300 group"
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold-300 group hover:-translate-y-2 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
               {service.icon_image && (
                 <div className="mb-4 flex justify-center">
-                  <div className="w-16 h-16 rounded-full bg-gold-100 flex items-center justify-center group-hover:bg-gold-200 transition-colors">
+                  <div className="w-16 h-16 rounded-full bg-gold-100 flex items-center justify-center group-hover:bg-gold-200 group-hover:scale-110 transition-all duration-300 animate-float">
                     <img
                       src={service.icon_image}
                       alt={service.title}

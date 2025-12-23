@@ -49,11 +49,12 @@ export default function BlogsSection() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12 max-w-6xl mx-auto">
-          {blogs.map((blog) => (
+          {blogs.map((blog, index) => (
             <Link
               key={blog.id}
               href={`/blogs/${blog.slug}`}
-              className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-gold-300"
+              className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold-300 hover:-translate-y-2 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Image */}
               {blog.featured_image && (
@@ -61,7 +62,7 @@ export default function BlogsSection() {
                   <img
                     src={blog.featured_image}
                     alt={blog.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-500"
                   />
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">

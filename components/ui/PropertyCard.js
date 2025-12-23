@@ -21,7 +21,7 @@ export default function PropertyCard({ property }) {
 
   return (
     <Link href={`/properties/${slug}`}>
-      <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+      <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group hover-lift animate-fade-in-up">
         {/* Image */}
         <div className="relative h-48 md:h-56 overflow-hidden bg-gray-200">
           {primary_image ? (
@@ -29,12 +29,12 @@ export default function PropertyCard({ property }) {
               src={primary_image}
               alt={title}
               fill
-              className="object-cover group-hover:scale-110 transition-transform duration-300"
+              className="object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-500"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gold-100 to-gold-200">
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gold-100 to-gold-200 animate-gradient">
               <svg
-                className="w-16 h-16 text-gold-400"
+                className="w-16 h-16 text-gold-400 animate-float"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -49,11 +49,11 @@ export default function PropertyCard({ property }) {
             </div>
           )}
           {featured && (
-            <div className="absolute top-3 left-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+            <div className="absolute top-3 left-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold animate-pulse shadow-lg">
               ⭐ Featured
             </div>
           )}
-          <div className="absolute top-3 right-3 bg-gold-600 text-white px-3 py-1 rounded-full text-xs font-semibold capitalize">
+          <div className="absolute top-3 right-3 bg-gold-600 text-white px-3 py-1 rounded-full text-xs font-semibold capitalize shadow-lg backdrop-blur-sm">
             {property_type || 'Property'}
           </div>
         </div>

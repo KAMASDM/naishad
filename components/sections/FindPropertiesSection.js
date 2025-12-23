@@ -46,15 +46,17 @@ export default function FindPropertiesSection() {
   return (
     <section className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <SectionTitle
-          subtitle="Advanced Search"
-          title="Find Your Perfect Property"
-          centered
-        />
+        <div className="animate-fade-in-up">
+          <SectionTitle
+            subtitle="Advanced Search"
+            title="Find Your Perfect Property"
+            centered
+          />
+        </div>
 
         <div className="max-w-5xl mx-auto">
           {/* Filters Card */}
-          <div className="bg-gradient-to-br from-gold-50 to-white p-6 md:p-8 rounded-2xl shadow-xl border border-gold-100">
+          <div className="bg-gradient-to-br from-gold-50 to-white p-6 md:p-8 rounded-2xl shadow-xl border border-gold-100 hover:shadow-2xl transition-shadow duration-500 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {/* Area Filter */}
               <div>

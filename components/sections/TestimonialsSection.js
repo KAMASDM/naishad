@@ -65,10 +65,11 @@ export default function TestimonialsSection() {
 
         {/* Desktop View - 3 Cards */}
         <div className="hidden lg:grid lg:grid-cols-3 gap-6 mt-12 max-w-6xl mx-auto">
-          {getVisibleTestimonials().map((testimonial) => (
+          {getVisibleTestimonials().map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold-300 hover:-translate-y-2 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Stars */}
               <div className="flex mb-4">
@@ -101,7 +102,7 @@ export default function TestimonialsSection() {
 
         {/* Mobile/Tablet View - Single Card with Navigation */}
         <div className="lg:hidden max-w-2xl mx-auto mt-12">
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 animate-fade-in-up hover:shadow-2xl transition-shadow duration-500">
             {/* Stars */}
             <div className="flex mb-4">
               {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
