@@ -15,6 +15,7 @@ export default function AdminSidebar() {
     { name: 'Properties', href: '/admin/properties', icon: '🏠' },
     { name: 'Blogs', href: '/admin/blogs', icon: '📝' },
     { name: 'Services', href: '/admin/services', icon: '💼' },
+    { name: 'Testimonials', href: '/admin/testimonials', icon: '⭐' },
     { name: 'Enquiries', href: '/admin/enquiries', icon: '📬' },
     { name: 'Contacts', href: '/admin/contacts', icon: '📞' },
     { name: 'Cities & Areas', href: '/admin/locations', icon: '📍' },

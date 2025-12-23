@@ -1,6 +1,9 @@
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturedProperties from "@/components/sections/FeaturedProperties";
 import FindPropertiesSection from "@/components/sections/FindPropertiesSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import BlogsSection from "@/components/sections/BlogsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 export const metadata = {
   title: 'Home',
@@ -21,6 +24,9 @@ export default function Home() {
       <HeroSection />
       <FeaturedProperties />
       <FindPropertiesSection />
+      <ServicesSection />
+      <TestimonialsSection />
+      <BlogsSection />
     </>
   );
 }
